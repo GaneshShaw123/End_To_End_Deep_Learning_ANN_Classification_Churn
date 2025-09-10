@@ -1,6 +1,6 @@
 # ANN-CLassification-Churn
 
-## Churn Prediction Pipeline
+## experiments.ipynb file Pipeline
 
 ```mermaid
 flowchart TD
@@ -22,3 +22,21 @@ flowchart TD
     I --> J[Train Model with Validation EarlyStopping TensorBoard]
     J --> K[Save Artifacts model.h5 scaler.pkl encoders.pkl]
     K --> L[Deployment Load Objects Predict Churn]
+
+
+
+## Prediction.ipynb file Pipeline
+
+```mermaid
+flowchart TD
+    A[Input Customer Data] --> B[Convert to DataFrame]
+    B --> C[Encode Gender using LabelEncoder]
+    B --> D[One-Hot Encode Geography using OneHotEncoder]
+    C --> E[Drop original Geography column and concat encoded columns]
+    D --> E
+    E --> F[Scale Features using StandardScaler]
+    F --> G[Load Trained Model (model.h5)]
+    G --> H[Predict Churn Probability]
+    H --> I{Is probability > 0.5?}
+    I -->|Yes| J[Customer likely to churn]
+    I -->|No| K[Customer not likely to churn]
