@@ -1,7 +1,5 @@
 # ANN-CLassification-Churn
 
-# ANN-Classification-Churn
-
 ## End-to-End Pipeline: Training + Prediction
 
 ```mermaid
